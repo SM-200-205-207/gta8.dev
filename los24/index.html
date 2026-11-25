@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="author" content="ismail demirbaş" />
+    <meta name="description" content="Unofficial LineageOS 24.0 (Android 17) installation guide for Samsung Galaxy Tab A8 (SM-X200 / SM-X205 / SM-X207)." />
+    <title>LineageOS 24.0 (Android 17) (SM-X200 / SM-X205 / SM-X207) :: SM-200-205-207</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231b1c1d'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-size='16' font-weight='bold' fill='%23fe5186'%3E~%3E%3C/text%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="../assets/css/style.css?v=5" />
+    <script src="../assets/js/main.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <span class="header__inner">
+          <a href="../" style="text-decoration: none;">
+            <div class="logo">
+              <span class="logo__mark">~&gt; </span>
+              <span class="logo__text">sm-200-205-207</span>
+              <span class="logo__cursor"></span>
+            </div>
+          </a>
+
+          <span class="header__right">
+            <nav class="menu">
+              <ul class="menu__inner">
+                <li><a href="../">Instructions</a></li>
+                <li><a href="https://github.com/SM-200-205-207" target="_blank" rel="noopener">GitHub</a></li>
+              </ul>
+            </nav>
+
+            <button class="menu-trigger" type="button" aria-label="Menu" aria-expanded="false">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+              </svg>
+            </button>
+
+            <button class="theme-toggle not-selectable" type="button" aria-label="Toggle theme">
+              <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22 3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7 13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z" />
+              </svg>
+            </button>
+          </span>
+        </span>
+      </header>
+
+      <div class="content">
+        <main class="post">
+          <article>
+            <h1 class="post-title">
+              <a href="./">LineageOS 24.0 (Android 17) (SM-X200 / SM-X205 / SM-X207)</a>
+            </h1>
+            <div class="post-meta">
+              Source: <a href="https://xdaforums.com/t/rom-unofficial-android-17-lineageos-24-0-for-samsung-galaxy-tab-a8-sm-x200-sm-x205-sm-x207.4808831/" target="_blank" rel="noopener">XDA Forums Thread #4808831</a> by ismail demirbaş
+            </div>
+
+            <hr />
+            <aside id="toc">
+              <div class="toc-title">Table of Contents</div>
+              <nav id="TableOfContents">
+                <ul>
+                  <li><a href="#disclaimer">Disclaimer</a></li>
+                  <li><a href="#overview">Overview &amp; Supported Models</a></li>
+                  <li><a href="#features">Key Features</a></li>
+                  <li><a href="#requirements">Pre-Installation Requirements</a></li>
+                  <li><a href="#instructions">Installation Instructions</a></li>
+                  <li><a href="#downloads">Downloads &amp; Thread</a></li>
+                </ul>
+              </nav>
+            </aside>
+            <hr />
+
+            <div class="post-content">
+              <h2 id="disclaimer">Disclaimer</h2>
+              <blockquote>
+                <p class="disclaimer-text">Disclaimer: We are not responsible for any devices you may have broken while installing the firmware using these instructions.</p>
+              </blockquote>
+
+              <h2 id="overview">Overview &amp; Supported Models</h2>
+              <ul>
+                <li><strong>Base OS:</strong> <strong>Android 17 (LineageOS 24.0)</strong></li>
+                <li><strong>SM-X200:</strong> Samsung Galaxy Tab A8 Wi-Fi (<code>gta8wifi</code>)</li>
+                <li><strong>SM-X205 / SM-X207:</strong> Samsung Galaxy Tab A8 LTE (<code>gta8</code> / <code>gta8tur</code>)</li>
+              </ul>
+
+              <h2 id="features">Key Features</h2>
+              <ul>
+                <li><strong>Magnetic cover</strong> support</li>
+                <li><strong>Double-tap to wake</strong></li>
+                <li><strong>Face unlock</strong></li>
+                <li>Optional <strong>4 GB swap file</strong> (configurable in <code>Settings &gt; System</code>)</li>
+                <li>Tweaked <strong>LMKD</strong> (Low Memory Killer Daemon) settings for better background app retention</li>
+                <li>Optional companion kernel (<strong>TabA8 Extended Kernel</strong>) with <strong>KernelSU / ReSukiSU</strong> support for root access</li>
+              </ul>
+
+              <h2 id="requirements">Pre-Installation Requirements</h2>
+              <ul>
+                <li><strong>Latest Stock Firmware:</strong> Ensure your tablet is running the latest official Samsung stock firmware for your exact model before starting.</li>
+                <li><strong>Remove Google Accounts:</strong> Remove any active Google accounts from the device beforehand to prevent <strong>Factory Reset Protection (FRP)</strong> triggers.</li>
+                <li><strong>Custom Recovery:</strong> Use a compatible custom recovery such as <strong>TWRP</strong> or <strong>OrangeFox</strong>.</li>
+              </ul>
+              <div class="step-note">
+                <strong>Note:</strong> An experimental recovery is bundled with the release, but TWRP / OrangeFox are fully compatible for flashing and future OTAs.
+              </div>
+
+              <h2 id="instructions">Installation Instructions</h2>
+              <ul class="step-list">
+                <li>
+                  <strong>1. Boot into Recovery:</strong>
+                  <ul>
+                    <li>Boot your device into your chosen custom recovery (<strong>TWRP</strong> or <strong>OrangeFox</strong>).</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>2. Format Data:</strong>
+                  <ul>
+                    <li>Perform a <strong>Format Data</strong> operation (type <code>yes</code> if prompted).</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>3. Flash LineageOS 24.0:</strong>
+                  <ul>
+                    <li>Flash the <strong>LineageOS 24.0 ZIP</strong> package matching your exact device variant (<code>gta8wifi</code> or <code>gta8</code>).</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>4. Install GApps (Optional):</strong>
+                  <ul>
+                    <li>Perform <strong>another Format Data</strong> operation after flashing the ROM.</li>
+                    <li><strong>Reboot back into Recovery</strong>.</li>
+                    <li>Flash <strong>BitGApps</strong>.</li>
+                  </ul>
+                  <div class="step-note">
+                    <strong>Warning:</strong> Avoid <strong>MindTheGapps</strong> on this build due to reported installation/stuck bugs; use <strong>BitGApps</strong> instead.
+                  </div>
+                </li>
+                <li>
+                  <strong>5. Reboot &amp; Initial Setup:</strong>
+                  <ul>
+                    <li>Reboot to <strong>System</strong> and complete the initial setup wizard.</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>6. Post-Setup Reboot:</strong>
+                  <ul>
+                    <li>After finishing setup, <strong>reboot the device one more time</strong> to iron out any minor post-installation hiccups.</li>
+                  </ul>
+                </li>
+              </ul>
+
+              <h2 id="downloads">Downloads &amp; Thread</h2>
+              <p>
+                ROM packages, device trees, and the optional <strong>TabA8 Extended Kernel</strong> are hosted in the official XDA thread:
+              </p>
+              <ul>
+                <li><a href="https://xdaforums.com/t/rom-unofficial-android-17-lineageos-24-0-for-samsung-galaxy-tab-a8-sm-x200-sm-x205-sm-x207.4808831/" target="_blank" rel="noopener">[ROM][UNOFFICIAL][Android 17] LineageOS 24.0 for Samsung Galaxy Tab A8 (SM-X200 / SM-X205 / SM-X207)</a></li>
+              </ul>
+            </div>
+          </article>
+        </main>
+      </div>
+
+      <footer class="footer">
+        <div class="footer__inner">
+          <div class="footer__content">
+            <span>SM-200-205-207 Community</span>
+            <span><a href="../">All Instructions</a></span>
+            <span>Theme inspired by <a href="https://cyberknight777.dev/" target="_blank" rel="noopener">cyberknight777</a></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

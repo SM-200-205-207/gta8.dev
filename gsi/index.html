@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="author" content="Maxim-Root" />
+    <meta name="description" content="Instructions on how to install GSI on Samsung Galaxy Tab A8 (SM-X200 / SM-X205)." />
+    <title>How to Flash GSI (SM-X200 / SM-X205) :: SM-200-205-207</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231b1c1d'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-size='16' font-weight='bold' fill='%23fe5186'%3E~%3E%3C/text%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="../assets/css/style.css?v=5" />
+    <script src="../assets/js/main.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <span class="header__inner">
+          <a href="../" style="text-decoration: none;">
+            <div class="logo">
+              <span class="logo__mark">~&gt; </span>
+              <span class="logo__text">sm-200-205-207</span>
+              <span class="logo__cursor"></span>
+            </div>
+          </a>
+
+          <span class="header__right">
+            <nav class="menu">
+              <ul class="menu__inner">
+                <li><a href="../">Instructions</a></li>
+                <li><a href="https://github.com/SM-200-205-207" target="_blank" rel="noopener">GitHub</a></li>
+              </ul>
+            </nav>
+
+            <button class="menu-trigger" type="button" aria-label="Menu" aria-expanded="false">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M0 0h24v24H0z" fill="none" />
+                <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+              </svg>
+            </button>
+
+            <button class="theme-toggle not-selectable" type="button" aria-label="Toggle theme">
+              <svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22 3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7 13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z" />
+              </svg>
+            </button>
+          </span>
+        </span>
+      </header>
+
+      <div class="content">
+        <main class="post">
+          <article>
+            <h1 class="post-title">
+              <a href="./">How to Flash GSI (SM-X200 / SM-X205)</a>
+            </h1>
+            <div class="post-meta">
+              Source: <a href="https://xdaforums.com/t/instructions-on-how-to-install-gsi-on-sm-x200-sm-x205.4632869/" target="_blank" rel="noopener">XDA Forums Thread #4632869</a> by Maxim-Root
+            </div>
+
+            <hr />
+            <aside id="toc">
+              <div class="toc-title">Table of Contents</div>
+              <nav id="TableOfContents">
+                <ul>
+                  <li><a href="#disclaimer">Disclaimer</a></li>
+                  <li><a href="#instructions">Instructions</a></li>
+                  <li><a href="#rooting-instruction">Rooting Instruction (Optional)</a></li>
+                  <li><a href="#necessary-tools">Necessary Tools</a></li>
+                  <li><a href="#twrp">TWRP</a></li>
+                  <li><a href="#fastboot-bug-fix">Fastboot Bug Fix</a></li>
+                  <li><a href="#installation-instruction-video">Installation Instruction Video</a></li>
+                </ul>
+              </nav>
+            </aside>
+            <hr />
+
+            <div class="post-content">
+              <h2 id="disclaimer">Disclaimer</h2>
+              <blockquote>
+                <p class="disclaimer-text">Disclaimer: We are not responsible for any devices you may have broken while installing the firmware using these instructions.</p>
+              </blockquote>
+
+              <h2 id="instructions">Instructions</h2>
+              <ul class="step-list">
+                <li>
+                  <strong>0. Preparatory step — we need tools:</strong>
+                  <ul>
+                    <li><strong>0.</strong> Installed <strong>ADB and Fastboot</strong></li>
+                    <li><strong>1.</strong> <strong>Odin</strong></li>
+                    <li><strong>2.</strong> <strong>Samsung USB drivers</strong></li>
+                    <li><strong>3.</strong> <strong>Custom firmware (GSI)</strong> — download firmware versions that support <strong>arm64</strong> (other firmware versions will not run)</li>
+                    <li><strong>4.</strong> <strong>Official stock firmware</strong> of your device version</li>
+                    <li><strong>5.</strong> Download <strong>TWRP</strong></li>
+                    <li><strong>6.</strong> Enable <strong>USB debugging</strong> in Developer Settings</li>
+                    <li><strong>7.</strong> In Odin, <strong>disable Auto Reboot</strong> (<code>Options</code> &rarr; uncheck <strong>Auto Reboot</strong>: &#x2611; &rarr; &#x2610;)</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>1. Unlock the bootloader:</strong>
+                  <ul>
+                    <li>Enable <strong>OEM Unlocking</strong> in Developer Settings.</li>
+                    <li>Connect the tablet to the computer and <strong>turn it off</strong>.</li>
+                    <li>When the screen goes out, hold <strong>Power + VOL+ + VOL-</strong> to enter <strong>Odin (Download) mode</strong>.</li>
+                    <li>Press and hold <strong>VOL+ for 7 seconds</strong> to unlock the bootloader (<strong>your data will be deleted</strong>).</li>
+                    <li>After unlocking, the tablet will reboot — immediately press <strong>VOL+ and VOL-</strong> to go back into <strong>Odin mode</strong>.</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>2. Flash TWRP:</strong>
+                  <ul>
+                    <li>Back in Odin mode, flash <strong>TWRP</strong> through the <strong>AP</strong> section.</li>
+                    <li>After flashing, reboot the tablet by holding <strong>Power + VOL- for 7–8 seconds</strong>.</li>
+                    <li>Immediately after the screen goes out, hold <strong>VOL+</strong> until the tablet boots into <strong>TWRP</strong>.</li>
+                  </ul>
+                  <div class="step-note">
+                    <strong>Note:</strong> Unlocking the bootloader erases user data. If you boot straight into TWRP without going through initial setup, TWRP may reboot once — this is normal; just hold <strong>VOL+</strong> when the screen goes out to return to TWRP.
+                  </div>
+                </li>
+                <li>
+                  <strong>3. Format Data in TWRP:</strong>
+                  <ul>
+                    <li>From the TWRP main menu, tap <strong>Wipe (Erase)</strong> &rarr; <strong>Format Data</strong> and type <strong>Yes</strong>.</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>4. Reboot to Fastboot:</strong>
+                  <ul>
+                    <li>Go back to the TWRP main menu and select <strong>Reboot</strong> &rarr; <strong>Fastboot</strong>.</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>5. Prepare the GSI image:</strong>
+                  <ul>
+                    <li>Copy your custom firmware into the <strong>ADB / Fastboot folder</strong> and rename it to something simple (e.g., <code>instructions.img</code>).</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>6. Prepare Stock Recovery:</strong>
+                  <ul>
+                    <li>Extract <code>recovery.img</code> from the <strong>AP</strong> archive of your official stock firmware and place it in the same <strong>ADB / Fastboot folder</strong>.</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>7. Flash the GSI:</strong>
+                  <ul>
+                    <li>Run <code>fastboot flash system instructions.img</code> and wait for it to finish.</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>8. Flash Stock Recovery:</strong>
+                  <ul>
+                    <li>Run <code>fastboot flash recovery recovery.img</code>.</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>9. Reboot:</strong>
+                  <ul>
+                    <li>Run <code>fastboot reboot</code>.</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>10. Final Format Data (if prompted):</strong>
+                  <ul>
+                    <li>After flashing, the tablet may reboot twice and enter stock recovery; if so, select <strong>Format Data</strong> &rarr; <strong>Yes</strong>.</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>11. Done:</strong>
+                  <ul>
+                    <li>The tablet will now boot into your custom firmware (GSI).</li>
+                  </ul>
+                </li>
+              </ul>
+
+              <h2 id="rooting-instruction">Rooting Instruction</h2>
+              <p>
+                This is an optional offshoot of the main guide if you need <strong>root</strong>:
+              </p>
+              <ul>
+                <li>Download <code>magisk.zip</code> and <code>Magisk.apk</code> and copy them to your <strong>SD card</strong> (<code>Magisk.apk</code> is needed in case it doesn't appear automatically after flashing).</li>
+                <li>After <strong>Step 7</strong>, run:</li>
+              </ul>
+              <pre><code>fastboot reboot recovery</code></pre>
+              <ul>
+                <li>In TWRP, tap <strong>Install</strong> &rarr; <strong>Select Storage</strong> &rarr; choose <strong>SD Card</strong>.</li>
+                <li>Select <code>magisk.zip</code> and swipe to flash it.</li>
+                <li>Return to the TWRP main menu, select <strong>Reboot</strong> &rarr; <strong>Fastboot</strong>, and continue from <strong>Steps 8–11</strong>.</li>
+              </ul>
+
+              <h2 id="necessary-tools">Necessary Tools</h2>
+              <ul>
+                <li>Odin: <a href="https://odindownloader.com/download/odin3-v3-14-4" target="_blank" rel="noopener">https://odindownloader.com/download/odin3-v3-14-4</a></li>
+                <li>Samsung USB Driver: <a href="https://developer.samsung.com/android-usb-driver" target="_blank" rel="noopener">https://developer.samsung.com/android-usb-driver</a></li>
+                <li>Samsung firmware sm-x200: <a href="https://samfw.com/firmware/SM-X200/" target="_blank" rel="noopener">https://samfw.com/firmware/SM-X200/</a></li>
+                <li>Samsung firmware sm-x205: <a href="https://samfw.com/firmware/SM-X205" target="_blank" rel="noopener">https://samfw.com/firmware/SM-X205</a></li>
+                <li>ADB Fastboot: <a href="https://developer.android.com/tools/releases/platform-tools" target="_blank" rel="noopener">https://developer.android.com/tools/releases/platform-tools</a></li>
+                <li>USB drivers for win7: <a href="https://developer.android.com/studio/run/win-usb" target="_blank" rel="noopener">https://developer.android.com/studio/run/win-usb</a></li>
+                <li>Complete GSI List (XDA): <a href="https://xdaforums.com/t/complete-gsi-list-samsung-galaxy-tab-a8.4619197/" target="_blank" rel="noopener">https://xdaforums.com/t/complete-gsi-list-samsung-galaxy-tab-a8.4619197/</a></li>
+              </ul>
+              <p class="disclaimer-text">(Be sure to download firmware for arm64 processor architecture)</p>
+
+              <h2 id="twrp">TWRP</h2>
+              <p>
+                <a href="https://github.com/MrFluffyOven/android_device_samsung_gta8wifi/releases/tag/twrp" target="_blank" rel="noopener">
+                  Release twrp 3.7.1 support x200-205 stable A14 &middot; SavedByLight/android_device_samsung_gta8wifi
+                </a>
+              </p>
+              <p>
+                Full information about the update can be found at <a href="https://github.com/MrFluffyOven/android_device_samsung_gta8wifi/commits/A14/" target="_blank" rel="noopener">https://github.com/MrFluffyOven/android_device_samsung_gta8wifi/commits/A14/</a> (support for One UI 6 / A14 is enabled).
+              </p>
+
+              <h2 id="fastboot-bug-fix">Fastboot Bug Fix</h2>
+              <p>
+                <a href="https://imgur.com/a/bJoLRr2" target="_blank" rel="noopener">https://imgur.com/a/bJoLRr2</a>
+              </p>
+
+              <h2 id="installation-instruction-video">Installation Instruction Video</h2>
+              <div class="video-wrapper">
+                <iframe
+                  src="https://www.youtube.com/embed/i9sGsgKMpXc?wmode=opaque"
+                  title="Installation instruction video"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <p>
+                Video link: <a href="https://www.youtube.com/watch?v=i9sGsgKMpXc" target="_blank" rel="noopener">https://www.youtube.com/watch?v=i9sGsgKMpXc</a>
+              </p>
+            </div>
+          </article>
+        </main>
+      </div>
+
+      <footer class="footer">
+        <div class="footer__inner">
+          <div class="footer__content">
+            <span>SM-200-205-207 Community</span>
+            <span><a href="../">All Instructions</a></span>
+            <span>Theme inspired by <a href="https://cyberknight777.dev/" target="_blank" rel="noopener">cyberknight777</a></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
